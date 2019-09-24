@@ -19,6 +19,7 @@ import gensim, sklearn
 from collections import defaultdict
 from batch_gen import batch_gen
 import sys
+from gensim.test.utils import datapath
 
 from nltk import tokenize as tokenize_nltk
 from my_tokenizer import glove_tokenize
@@ -306,7 +307,7 @@ if __name__ == "__main__":
 
     #word2vec_model = word2vec.KeyedVectors.load_word2vec_format(path_to_word2vec, binary=True)
     #word2vec_model = gensim.models.Word2Vec.load_word2vec_format(GLOVE_MODEL_FILE)
-    word2vec_model = gensim.models.KeyedVectors.load_word2vec_format(GLOVE_MODEL_FILE, binary=False)
+    word2vec_model = gensim.models.KeyedVectors.load_word2vec_format(datapath(GLOVE_MODEL_FILE), binary=False)
     np.random.seed(SEED)
 
 

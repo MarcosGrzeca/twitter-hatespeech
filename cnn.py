@@ -305,7 +305,8 @@ if __name__ == "__main__":
     print 'Allowing embedding learning: %s' %(str(LEARN_EMBEDDINGS))
 
     #word2vec_model = word2vec.KeyedVectors.load_word2vec_format(path_to_word2vec, binary=True)
-    word2vec_model = gensim.models.Word2Vec.load_word2vec_format(GLOVE_MODEL_FILE)
+    #word2vec_model = gensim.models.Word2Vec.load_word2vec_format(GLOVE_MODEL_FILE)
+    word2vec_model = gensim.models.KeyedVectors.load_word2vec_format(GLOVE_MODEL_FILE)
     np.random.seed(SEED)
 
 

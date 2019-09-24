@@ -5,7 +5,7 @@ import pdb
 
 def get_data():
     tweets = []
-    files = ['racism.json', 'neither.json', 'sexism.json']
+    files = ['ambos.json']
     for file in files:
         with codecs.open('./tweet_data/' + file, 'r', encoding='utf-8') as f:
             data = f.readlines()
@@ -15,7 +15,7 @@ def get_data():
                 'id': tweet_full['id'],
                 'text': tweet_full['text'].lower(),
                 'label': tweet_full['Annotation'],
-                'name': tweet_full['user']['name'].split()[0]
+                'name': "TESTE"
                 })
 
     #pdb.set_trace()

@@ -3,7 +3,7 @@ import argparse
 from keras.preprocessing.sequence import pad_sequences
 from keras.layers import Embedding, Input, LSTM
 from keras.models import Sequential, Model
-from keras.layers import Activation, Dense, Dropout, Embedding, Flatten, Input, Merge, Convolution1D, MaxPooling1D, GlobalMaxPooling1D
+from keras.layers import Activation, Dense, Dropout, Embedding, Flatten, Input, Concatenate, Convolution1D, MaxPooling1D, GlobalMaxPooling1D
 import numpy as np
 import pdb
 from nltk import tokenize
@@ -181,7 +181,7 @@ def cnn_model(sequence_length, embedding_dim):
         convs.append(pool)
 
     if len(filter_sizes)>1:
-        out = Merge(mode='concat')(convs)
+        out = Concatenate(mode='concat')(convs)
     else:
         out = convs[0]
 

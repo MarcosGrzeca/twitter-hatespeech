@@ -5,7 +5,7 @@ import pdb
 
 def get_data():
     tweets = []
-    files = ['ambos.json']
+    files = ['ambos2.json']
     for file in files:
         with codecs.open('./tweet_data/' + file, 'r', encoding='utf-8') as f:
             data = f.readlines()

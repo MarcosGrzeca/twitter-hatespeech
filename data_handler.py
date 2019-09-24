@@ -8,15 +8,15 @@ def get_data():
     files = ['ambos.json']
     for file in files:
         with codecs.open('./tweet_data/' + file, 'r', encoding='utf-8') as f:
-            tweets = f.readlines()
-        # for line in data:
-        #     tweet_full = json.loads(line)
-        #     tweets.append({
-        #         'id': tweet_full['id'],
-        #         'text': tweet_full['text'].lower(),
-        #         'label': tweet_full['label'],
-        #         'name': "TESTE"
-        #         })
+            data = f.readlines()
+        for line in data:
+            tweet_full = json.loads(line)
+            tweets.append({
+                'id': tweet_full['id'],
+                'text': tweet_full['text'].lower(),
+                'label': tweet_full['label'],
+                'name': "TESTE"
+                })
 
     #pdb.set_trace()
     return tweets

@@ -306,11 +306,11 @@ if __name__ == "__main__":
     #word2vec_model = word2vec.KeyedVectors.load_word2vec_format(path_to_word2vec, binary=True)
     #word2vec_model = gensim.models.Word2Vec.load_word2vec_format(GLOVE_MODEL_FILE)
 
-    from gensim.scripts.glove2word2vec import glove2word2vec
-    glove2word2vec(glove_input_file=GLOVE_MODEL_FILE, word2vec_output_file="gensim_glove_vectors.txt")
+    # from gensim.scripts.glove2word2vec import glove2word2vec
+    # glove2word2vec(glove_input_file=GLOVE_MODEL_FILE, word2vec_output_file="gensim_glove_vectors.txt")
     
-    from gensim.models.keyedvectors import KeyedVectors
-    word2vec_model = KeyedVectors.load_word2vec_format("gensim_glove_vectors.txt", binary=False)
+    # from gensim.models.keyedvectors import KeyedVectors
+    # word2vec_model = KeyedVectors.load_word2vec_format("gensim_glove_vectors.txt", binary=False)
 
     #word2vec_model = gensim.models.KeyedVectors.load_word2vec_format(GLOVE_MODEL_FILE, binary=False)
     

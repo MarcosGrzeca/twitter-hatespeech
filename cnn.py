@@ -126,8 +126,8 @@ def filter_vocab(k):
 
 def gen_sequence():
     y_map = {
-            'sober': "0",
-            'drunk': "1"
+            'sober': 0,
+            'drunk': 1
             }
 
     X, y = [], []

@@ -140,7 +140,8 @@ def gen_sequence():
         for word in words:
             seq.append(vocab.get(word, vocab['UNK']))
         X.append(seq)
-        y.append(y_map[tweet['label']])
+        #y.append(y_map[tweet['label']])
+        y.append(tweet['label'])
     return X, y
 
 

@@ -272,7 +272,11 @@ if __name__ == "__main__":
     print 'Embedding Dimension: %d' %(EMBEDDING_DIM)
     print 'Allowing embedding learning: %s' %(str(LEARN_EMBEDDINGS))
 
-    word2vec_model = gensim.models.Word2Vec.load_word2vec_format(GLOVE_MODEL_FILE)
+    # word2vec_model = gensim.models.Word2Vec.load_word2vec_format(GLOVE_MODEL_FILE)
+    from gensim.scripts.glove2word2vec import glove2word2vec
+    glove2word2vec(glove_input_file=GLOVE_MODEL_FILE, word2vec_output_file="gensim_glove_vectors.txt")
+    from gensim.models.keyedvectors import KeyedVectors
+    word2vec_model = KeyedVectors.load_word2vec_format("gensim_glove_vectors.txt", binary=False)
 
     tweets = select_tweets()
     gen_vocab()

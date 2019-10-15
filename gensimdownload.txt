@@ -1,0 +1,4 @@
+https://github.com/RaRe-Technologies/gensim-data
+
+Embeddings de tweets:
+https://github.com/FredericGodin/TwitterEmbeddings

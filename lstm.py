@@ -160,7 +160,7 @@ def lstm_model(sequence_length, embedding_dim):
     # model.add(Dense(2))
     # model.add(Activation('softmax'))
     model.add(Dense(1))
-    model.compile(loss=LOSS_FUN, optimizer=OPTIMIZER, metrics=['accuracy'])
+    model.compile(loss="binary_crossentropy", optimizer=OPTIMIZER, metrics=['accuracy'])
     print model.summary()
     return model
 

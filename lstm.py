@@ -196,7 +196,8 @@ def train_LSTM(X, y, model, inp_dim, weights, epochs=EPOCHS, batch_size=BATCH_SI
                     class_weights[2] = np.where(y_temp == 2)[0].shape[0]/float(len(y_temp))
 
                 try:
-                    y_temp = np_utils.to_categorical(y_temp, nb_classes=2)
+                    #y_temp = np_utils.to_categorical(y_temp, nb_classes=2)
+                    y_temp = y_temp
                 except Exception as e:
                     print e
                     print y_temp

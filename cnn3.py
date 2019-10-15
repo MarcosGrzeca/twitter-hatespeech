@@ -171,11 +171,11 @@ def cnn_model(sequence_length, embedding_dim):
     graph_in = Input(shape=(sequence_length, embedding_dim))
     convs = []
     for fsz in filter_sizes:
-        # conv = Convolution1D(nb_filter=num_filters,
-        #                      filter_length=fsz,
-        #                      border_mode='valid',
-        #                      activation='relu')(graph_in)
-        #                      #,subsample_length=1)(graph_in)
+        conv = Convolution1D(nb_filter=num_filters,
+                             filter_length=fsz,
+                             border_mode='valid',
+                             activation='relu')(graph_in)
+                             #,subsample_length=1)(graph_in)
 
         conv = Conv1D(activation="relu", padding="valid", filters=num_filters, kernel_size=fsz)
         pool = GlobalMaxPooling1D()(conv)

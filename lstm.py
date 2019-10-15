@@ -157,8 +157,9 @@ def lstm_model(sequence_length, embedding_dim):
     model.add(Dropout(0.25))#, input_shape=(sequence_length, embedding_dim)))
     model.add(LSTM(50))
     model.add(Dropout(0.5))
-    model.add(Dense(2))
-    model.add(Activation('softmax'))
+    # model.add(Dense(2))
+    # model.add(Activation('softmax'))
+    model.add(Dense(1))
     model.compile(loss=LOSS_FUN, optimizer=OPTIMIZER, metrics=['accuracy'])
     print model.summary()
     return model

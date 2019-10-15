@@ -126,9 +126,8 @@ def filter_vocab(k):
 
 def gen_sequence():
     y_map = {
-            'none': 0,
-            'racism': 1,
-            'sexism': 2
+            'sober': 0,
+            'drunk': 1
             }
 
     X, y = [], []
@@ -141,7 +140,7 @@ def gen_sequence():
         for word in words:
             seq.append(vocab.get(word, vocab['UNK']))
         X.append(seq)
-        y.append(y_map[tweet['label']])
+        y.append(tweet['label'])
     return X, y
 
 
@@ -158,7 +157,7 @@ def lstm_model(sequence_length, embedding_dim):
     model.add(Dropout(0.25))#, input_shape=(sequence_length, embedding_dim)))
     model.add(LSTM(50))
     model.add(Dropout(0.5))
-    model.add(Dense(3))
+    model.add(Dense(2))
     model.add(Activation('softmax'))
     model.compile(loss=LOSS_FUN, optimizer=OPTIMIZER, metrics=['accuracy'])
     print model.summary()
@@ -196,7 +195,7 @@ def train_LSTM(X, y, model, inp_dim, weights, epochs=EPOCHS, batch_size=BATCH_SI
                     class_weights[2] = np.where(y_temp == 2)[0].shape[0]/float(len(y_temp))
 
                 try:
-                    y_temp = np_utils.to_categorical(y_temp, nb_classes=3)
+                    y_temp = np_utils.to_categorical(y_temp, nb_classes=2)
                 except Exception as e:
                     print e
                     print y_temp
